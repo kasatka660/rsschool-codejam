@@ -35,3 +35,18 @@ describe('make', () => {
     assert.deepEqual(result, 257040);
   });
 });
+
+// Test for function "recursion".
+
+const recursion = require('../recursion.js');
+
+describe('recursion', () => {
+  it('test_1', () => {
+    const result = recursion({"value":100,"left":{"value":90,"left":{"value":70},"right":{"value":99}},"right":{"value":120,"left":{"value":110},"right":{"value":130}}});
+    assert.deepEqual(result, [[100], [90, 120], [70,99,110,130]]);
+  });
+  it('test_2', () => {
+    const result = recursion({"value":100,"left":{"value":90},"right":{"value":120,"left":{"value":110}}});
+    assert.deepEqual(result, [[100], [90, 120], [110]]);
+  });
+});
